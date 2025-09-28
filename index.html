@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Bestie</title>
+
+  <link rel="stylesheet" href="birthday.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+  <!-- Welcome Screen -->
+  <div id="welcome">
+    <h1>Happy Birthday!</h1>
+    <button id="enter-btn">Well come</button>
+    <!-- Welcome Page ke andar -->
+    <img src="p01-removebg-preview.png" class="welcome-slide-left" alt="Left Image"
+      style="width:600px; height:auto; position:absolute; left:-200px; top:50%; transform:translateY(-50%);">
+    <img src="p03-removebg-preview.png" class="welcome-slide-right" alt="Right Image"
+      style="width:600px; height:auto; position:absolute; right:-200px; top:50%; transform:translateY(-50%);">
+
+    <img src="kitkat-removebg-preview.png" alt="New Surprise" class="drop-flip-img"
+      style="width:250px; max-width:80%; margin-top:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.3);">
+  </div>
+
+  <!-- Main Interface -->
+  <div id="main-interface">
+    <!-- Yaha apna pura existing interface code paste kare -->
+    <!-- Example placeholder: -->
+    <h2 style="text-align:center; padding-top:50px;">Your full interface will appear here.</h2>
+  </div>
+
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <canvas id="confetti"></canvas>
+
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b5"></div>
+  <div class="balloon b6"></div>
+  <div class="balloon b7"></div>
+
+  <img src="cake.gif" class="floating-gif" style="left:10%; bottom:0;">
+  <div class="candle-flame" style="left:45px; bottom:65px;"></div>
+  <img src="star.gif" class="floating-gif" style="left:50%; bottom:-50px;">
+  <img src="candle.gif" class="floating-gif" style="left:80%; bottom:-30px;">
+
+  <div id="hearts-container"></div>
+  <div id="stars-container"></div>
+
+  <div class="card">
+    <h1>🎉 Happy Birthday Bestie 🎂</h1>
+    <p id="wish"></p>
+    <div id="age">🎉 0 🎉</div>
+    <button id="surprise-btn" onclick="playTransitionVideo()">🎁 Surprise</button>
+
+    <br>
+    <img id="secret" src="cack.webp" alt="Surprise!">
+  </div>
+
+  <div id="thankyou-page" style="display:none; 
+    position:fixed; top:0; left:0; width:100%; height:100%; 
+    background: linear-gradient(135deg, #fffafed4, #d24545);
+    color:rgb(252, 252, 252); text-align:center; 
+    display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:9999;">
+
+    <h1 style="font-size:3rem; margin-bottom:20px;">🎉“Hope this little surprise made your day brighter! Happy Birthday
+      again, Pooja! 🎉💛” ! 🎉</h1>
+
+    <p style="font-size:2rem; margin-bottom:10px;">“Tumhari muskaan aur dosti ke liye ye chhota sa Surprise 💖</p>
+    <img src="gift-removebg-preview.png" alt="New Surprise" class="drop-flip-img"
+      style="width:300px; max-width:80%; margin-top:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.3);">
+
+    <!-- Image add karne ke liye -->
+    <img src="birthday.png" alt="Pooja"
+      style="width:600px; max-width:80%; border-radius:15px; margin-bottom:30px; box-shadow:0 5px 15px rgba(1, 1, 220, 0.3);">
+
+    <button id="back-home"
+      style="padding:15px 30px; font-size:1.2rem; border:none; border-radius:10px; background:#e7e7e7; color:#ec0634; cursor:pointer; box-shadow:0 5px 15px rgba(212, 204, 204, 0.3); transition:0.3s;">
+      Back to Fun 🎈
+    </button>
+    <!-- Floating Emojis (Hearts + Flowers + Stars) -->
+    <div id="emoji-container">
+      <!-- Floating Favorite Person Text -->
+      <p class="favorite-text">✨ My Favorite Person ✨</p>
+
+      <span class="emoji">❤️</span>
+      <span class="emoji">💖</span>
+      <span class="emoji">💕</span>
+      <span class="emoji">💓</span>
+      <span class="emoji">🌸</span>
+      <span class="emoji">🌹</span>
+      <span class="emoji">🌼</span>
+      <span class="emoji">✨</span>
+      <span class="emoji">🌟</span>
+      <img src="panda-removebg-preview.png" class="welcome-slide-left" alt="Left Image"
+        style="width:600px; position:absolute; left:-200px; top:50%; transform:translateY(-50%);">
+      <img src="p02-removebg-preview (1).png" class="welcome-slide-right" alt="Right Image"
+        style="width:600px; position:absolute; right:-200px; top:50%; transform:translateY(-50%);">
+
+    </div>
+    <div class="star" style="left:10%; top:20%;"></div>
+    <div class="star" style="left:50%; top:40%;"></div>
+    <div class="star" style="left:80%; top:30%;"></div>
+
+  </div>
+  <!-- Welcome Page -->
+  <div id="welcomePage">
+    <h1>Welcome!</h1>
+    <button onclick="showMain()">Enter</button>
+  </div>
+
+  <!-- Main Interface -->
+  <div id="mainInterface" style="display:none;">
+    <h2>Main Interface</h2>
+    <button onclick="showThankYou()">Surprise</button>
+  </div>
+
+  <!-- Thank You Page -->
+  <!-- <div id="thankYouPage" style="display:none;">
+    <h2>Thank You!</h2>
+    <img src="birthday.png" alt="Surprise Image" style="width:100%;height:auto;"> -->
+
+  <!-- </div> -->
+  <div id="video-container" style="
+  display:none; 
+  position:fixed; 
+  top:; left:0; 
+  width:100%; height:100%; 
+  background:black; 
+  z-index:9998; 
+  justify-content:center; 
+  align-items:center; 
+  flex-direction:column;
+">
+    <video id="transition-video" autoplay style="
+  width:100%;
+  height:100%;
+  object-fit:contain; /* Full video दिखे, cut न हो */
+  background:black;   /* खाली जगह काली दिखे */
+">
+      <source src="BDYVIDEO.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <button id="gift-btn" style="
+    position:absolute; 
+    bottom:20%; 
+    padding:15px 30px; 
+    font-size:1.5rem; 
+    border:none; 
+    border-radius:12px; 
+    background:#ff4d6d; 
+    color:white; 
+    cursor:pointer; 
+    box-shadow:0 5px 15px rgba(0,0,0,0.3); 
+    transition:0.3s;
+  ">
+      🎁 Open Gift
+    </button>
+  </div>
+
+  <script src="birthday.js"></script>
+  <script src="responsive.js"></script>
+
+</body>
+
+</html>
